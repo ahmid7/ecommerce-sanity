@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url(../public/fonts/NiveauGroteskLight.otf);
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url(../public/fonts/NiveauGroteskMedium.otf);
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url(../public/fonts/NiveauGroteskBold.otf);
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url(../public/fonts/NiveauGroteskRegular.otf);
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nobel';
+  src: url(../public/fonts/NobelRegular.ttf);
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'NiveauGrotesk', sans-serif;
+    font-weight: 300
+  }
+}
+
+.flex-space-between {
+  @apply flex justify-between items-center
+}
+
+
+.flex-space-center{
+  @apply flex justify-center items-center
+}
+
+.position-absolute {
+  @apply absolute -bottom-20 left-[29rem]
+}
+
+.carousel-button{
+  @apply px-4 py-3 cursor-pointer
+}
+
+.circle{
+  @apply w-[192px] h-[192px] rounded-full border-2 flex-space-center cursor-pointer tracking-widest text-sm text-primaryColor flex-space-center
+}
