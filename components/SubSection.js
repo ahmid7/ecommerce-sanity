@@ -6,7 +6,7 @@ import {
 
 function SubSection(props){
 
-  return(
+return(
     <div className='py-12 px-60 overflow-hidden'>
       <div className={`flex-space-between`}>
         <div className='flex-space-between mb-12 gap-x-6 text-primaryColor font-medium text-[56px]'>

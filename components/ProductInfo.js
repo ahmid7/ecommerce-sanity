@@ -5,11 +5,11 @@ import {
 } from 'react-icons/ai'
 import { MdFavoriteBorder } from 'react-icons/md'
 
-function ProductInfo({ name, price, details, }){
+function ProductInfo({ name, price, details }){
  
   return(
     <div className='flex-1 font-light'>
-      <h2 className=' text-primaryColor text-3xl'>{ name }</h2>
+      <h2 className=' text-primaryColor text-3xl capitalize'>{ name }</h2>
       <p className='text-[#c1c1c1] text-2xl py-2'>{`$ ${price}`}</p>
 
       <div className='flex-space-between '>
@@ -27,7 +27,7 @@ function ProductInfo({ name, price, details, }){
         <p className='text-lg py-5 text-[#9B9B9B] leading-[30px]'>{ details }</p>
       </div>
 
-      <div className='flex items-center gap-x-3'>
+      <div className='flex items-center gap-x-3 cursor-pointer'>
         <div className=''>
           <AiOutlineMinus/>
         </div>
@@ -47,6 +47,30 @@ function ProductInfo({ name, price, details, }){
           <MdFavoriteBorder color='#C3B8A5' fontSize={30}/>
         </div>
       </div>
+
+      <div className='font-normal text-sm text-primaryColor'>
+        <div className='my-2'>
+          <p className='tags-container-flex uppercase'>
+            sku ref: 
+            <span className='tags'> la-1234</span>
+          </p>
+        </div>
+
+        <div className='my-2'>
+          <p className='tags-container-flex'>
+            Categories: 
+            <span className='tags'>Table, Decoration, Furniture</span>
+          </p>
+        </div>
+
+        <div className='my-2'>
+          <p className='tags-container-flex'>
+            Tags: 
+            <span className='tags'>Furniture, Modern</span>
+          </p>
+        </div>
+      </div>
+
     </div>
   )
 }

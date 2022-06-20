@@ -1,23 +1,30 @@
+import Link from 'next/link'
+
 import { SubSection } from '../index'
 import { urlFor } from '../../lib/client'
 
 function Product({ product }){
-  const { image, name, price } = product
+  const { image, name, price,slug } = product
+  
   return(
-    <div className='flex gap-x-10'>
-      <div className='w-[162px] h-[170px]'>
-        <img 
-          src={ urlFor(image && image[0]) }
-          alt = { name }
-          className='w-full h-full'
-        />
-      </div>
+    <Link href='/product/[slug]' as={`/product/${slug.current}`}>
+      <a>
+        <div className='flex gap-x-10'>
+          <div className='w-[162px] h-[170px]'>
+            <img 
+              src={ urlFor(image && image[0]) }
+              alt = { name }
+              className='w-full h-full'
+            />
+          </div>
 
-      <div className=''>
-        <p className='py-2 text-primaryColor'>{ name }</p>
-        <p className='text-[#C1C1C1] text-[18px]'> {`$ ${price}`} </p>
-      </div>
-    </div>
+          <div className=''>
+            <p className='py-2 text-primaryColor'>{ name }</p>
+            <p className='text-[#C1C1C1] text-lg'> {`$ ${price}`} </p>
+          </div>
+        </div>
+      </a>
+    </Link>
   )
 }
 

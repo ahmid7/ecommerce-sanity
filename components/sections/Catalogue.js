@@ -1,3 +1,4 @@
+import Link  from 'next/link'
 
 import { urlFor } from '../../lib/client'
 
@@ -7,14 +8,18 @@ function Catalogue({ data }){
       <div className='grid grid-cols-4'>
         {
           data?.map(product =>{
-            const { name, image, price } = product
+            const { name, image, slug } = product
             return(
               <div className='h-[480px]'>
-                <img 
-                  src={ urlFor(image && image[0])}
-                  alt={ name }
-                  className='w-full h-full'
-                />
+                <Link href='/product/[slug]' as={`/product/${slug.current}`}>
+                  <aa>
+                    <img 
+                      src={ urlFor(image && image[0])}
+                      alt={ name }
+                      className='w-full h-full'
+                    />
+                  </aa>
+                </Link>
               </div>
             )
           })

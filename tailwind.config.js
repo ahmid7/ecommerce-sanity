@@ -1,3 +1,4 @@
+/** @type { import('tailwindcss').Config } */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -11,7 +12,8 @@ module.exports = {
         'primaryColor':'#333333',
       },
       backgroundImage: {
-        'designSystem' : "url('/Images/background.jpg')"
+        'designSystem' : "url('/Images/background.jpg')",
+        'svgBg': "url('/svgImage/cart-bg.svg)"
       }
     },
   },

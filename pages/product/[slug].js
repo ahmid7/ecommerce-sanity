@@ -1,58 +1,71 @@
 import React from 'react';
 import { TopNav } from '../../components/index'
-import { client, urlFor } from '../../lib/client';
+import { client } from '../../lib/client';
 import { 
-  AiFillStar,
-  AiOutlineMinus,
-  AiOutlinePlus
-} from 'react-icons/ai'
-import { ProductInfo } from '../../components/index'
+  ProductInfo,
+  ProductImages,
+  Description,
+  AdditionalInformation,
+  Reviews
+} from '../../components/index'
 
 
 function ProductDetails({ productData }){
   const { name, category, slug, price, details, image } = productData
-  const [imageIndex, setImageIndex] = React.useState(0)
 
-  function updateImageIndex(index){
-    setImageIndex(index)
-  }
+  const [ active, setActive ] = React.useState('description')
+  
   return(
     <section>
       <TopNav>
         <div className='w-full bg-[#F0EDE8]'>
-          <div className='container mx-auto'>
+          <div className='auto-width'>
             <p className='py-4'>{`Home /Shop / ${ name }`}</p>
           </div>
         </div>
 
-        <div className='container mx-auto'>
-          <div className='flex py-10 gap-x-10'>
-            <div className='flex gap-x-10'>
-              <ul className=''>
-                {
-                  image.map((item, i) =>{
-                    return(
-                      <li className='w-[95px] h-[110px] mb-5'>
-                        <img src={urlFor(item)} onClick={() =>updateImageIndex(i)} className="w-full h-full"/>
-                      </li>
-                    )
-                  })
-                }
-              </ul>
+        <div className='auto-width'>
+          <div className=''>
+            <div className='flex py-10 gap-x-10'>
+            <ProductImages
+              images={ image }
+            />
 
-              <div className='w-[700px] h-[790px]'>
-                <img 
-                  src={urlFor(image && image[imageIndex])}
-                  className='w-full h-full'
-                />
-              </div>
+            <ProductInfo
+              name={name}
+              price={price}
+              details={details}
+            />
             </div>
+          </div>
 
-           <ProductInfo
-            name={name}
-            price={price}
-            details={details}
-           />
+          <div className='my-12'>
+            <div className='uppercase flex items-center gap-x-12 component-change border-b-2 pb-3'>
+              <p 
+                className={`hover:text-primaryColor ${active ==='description' ? 'text-primaryColor' : '' }`}
+                onClick={() => setActive('description')}
+              >
+                Description
+              </p>
+              <p 
+                className={`hover:text-primaryColor ${active ==='additional information' ? 'text-primaryColor' : '' }`}
+                onClick={() => setActive('additional information')}
+              >
+                Additional Information
+              </p>
+              <p 
+                className={`hover:text-primaryColor ${active ==='reviews' ? 'text-primaryColor' : '' }`}
+                onClick={() => setActive('reviews')}
+              >
+                Reviews (1) 
+              </p>
+            </div>
+          </div>
+
+          <div>
+            { active === 'description' && <Description images={ image }/> }
+            { active === 'additional information' && <AdditionalInformation/> }
+            { active === 'reviews' && <Reviews/> }
           </div>
         </div>
 

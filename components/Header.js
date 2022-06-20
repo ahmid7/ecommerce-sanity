@@ -6,9 +6,10 @@ import {
   HamburgerMenu
 } from './svgIcons'
 
-function Header() {
+function 
+Header() {
   return (
-    <header className='flex-space-between'>
+    <header className='flex-space-between py-2'>
       <div className='pl-20'>
         <BrandLogo />
       </div>

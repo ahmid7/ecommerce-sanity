@@ -65,3 +65,27 @@
 .circle{
   @apply w-[192px] h-[192px] rounded-full border-2 flex-space-center cursor-pointer tracking-widest text-sm text-primaryColor flex-space-center
 }
+
+.tags{
+  @apply font-light text-[#9B9B9B]
+}
+
+.tags-container-flex{
+  @apply flex gap-x-2
+}
+
+.component-change{
+  @apply text-[#C1C1C1] font-light text-xl tracking-[2px]
+}
+
+.auto-width{
+  @apply container mx-auto px-0
+}
+
+.input-style {
+  @apply w-full border-b-[1px] font-light text-lg border-[#9D9D9D] focus:border-activeColor outline-none py-2 text-[#9D9D9D]
+}
+
+.form-button {
+ @apply block border-[1px] border-activeColor py-4 px-8 mt-8
+}
