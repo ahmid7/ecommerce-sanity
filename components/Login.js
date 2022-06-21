@@ -6,14 +6,13 @@ function Login(){
     password: '',
   })
   
-  function updateFormDetails( detail, value ){
+  function updateFormDetails(e){
     setFormDetails(
-      { 
+      {
         ...formDetails,
-        [detail]: value
+        [e.target.name]: e.target.value
       }
     )
-    
   }
 
   return(
@@ -23,20 +22,22 @@ function Login(){
           e.preventDefault()
         }}
       >
-        <input 
+        <input  
           className="input-style" 
           type='text'
           placeholder="Username or email address *"
+          name='name'
           value={formDetails.name}
-          onChange={ (e) => { updateFormDetails( 'name', e.target.value ),  console.log(formDetails) }}
+          onChange={ updateFormDetails }
         />
 
         <input 
           className="input-style mt-12" 
           type='password'
+          name='password'
           placeholder="Password *"
           value={formDetails.password}
-          onChange = {(e) => { updateFormDetails('password', e.target.value ) }}
+          onChange = { updateFormDetails }
         />
 
         <label 

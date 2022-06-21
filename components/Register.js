@@ -1,20 +1,20 @@
 import React from 'react'
 
 function Register(){
+
   const [ formDetails, setFormDetails ] = React.useState({
     username: '',  
     email : '',
     password: '',
   })
 
-  function updateFormDetails( detail, value ){
+  function updateFormDetails(e){
     setFormDetails(
       { 
         ...formDetails,
-        [detail]: value
+        [e.target.name]: e.target.value
       }
     )
-    
   }
 
   return ( 
@@ -28,24 +28,27 @@ function Register(){
           className='input-style'
           type='text'
           placeholder='Username'
-          value={formDetails.username}
-          onChange={ (e) => { updateFormDetails( 'username', e.target.value ) }}
+          name='username'
+          value={ formDetails.username }
+          onChange={ updateFormDetails }
         />
 
         <input
           className='input-style mt-12'
           type='email'
           placeholder='Email Address'
-          value={formDetails.username}
-          onChange={ (e) => { updateFormDetails( 'email', e.target.value ) }}
+          name='email'
+          value={ formDetails.email }
+          onChange={ updateFormDetails }
         />
 
         <input 
           className="input-style mt-12" 
           type='password'
           placeholder="Password *"
-          value={formDetails.password}
-          onChange = {(e) => { updateFormDetails('password', e.target.value ) }}
+          name='password'
+          value={ formDetails.password }
+          onChange = { updateFormDetails }
         />
 
         <p className='mt-6 leading-relaxed'>

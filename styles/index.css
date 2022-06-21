@@ -89,3 +89,11 @@
 .form-button {
  @apply block border-[1px] border-activeColor py-4 px-8 mt-8
 }
+
+.svg-background {
+  background-image: url('/svgImage/cart-bg.svg');
+}
+
+.text-2xll{
+  @apply text-[26px]
+}

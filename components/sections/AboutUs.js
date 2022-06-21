@@ -4,6 +4,7 @@ import { SquareIcon } from '../svgIcons'
 import { Circle } from '../index'
 
 function AboutUs() {
+  
   return(
     <section className='px-60 py-20'>
       <div className='flex gap-x-10'>

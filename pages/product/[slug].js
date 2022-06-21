@@ -1,5 +1,6 @@
 import React from 'react';
-import { TopNav } from '../../components/index'
+
+import {  TopNav } from '../../components/index'
 import { client } from '../../lib/client';
 import { 
   ProductInfo,
@@ -32,9 +33,7 @@ function ProductDetails({ productData }){
             />
 
             <ProductInfo
-              name={name}
-              price={price}
-              details={details}
+              product = { productData }
             />
             </div>
           </div>

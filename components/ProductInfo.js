@@ -1,3 +1,4 @@
+import React from 'react'
 import { 
   AiFillStar,
   AiOutlineMinus,
@@ -5,10 +6,30 @@ import {
 } from 'react-icons/ai'
 import { MdFavoriteBorder } from 'react-icons/md'
 
-function ProductInfo({ name, price, details }){
- 
+import { Context } from '../Context/StateContext'
+
+function ProductInfo({ product }){
+  const { name, price, details } = product
+
+  const context = React.useContext(Context)
+
+  function handleClick( value){
+    context.dispatchAction({ type: value })
+  }
+
+  function handleAddToCart(){
+    context.dispatchAction({ 
+      type: 'addToCart',
+      payload: { 
+        _id : product._id,
+        quantity: context.state.quantity, 
+        price: price 
+      }
+    })
+  }
+
   return(
-    <div className='flex-1 font-light'>
+    <div className='flex-1 font-light select-none'>
       <h2 className=' text-primaryColor text-3xl capitalize'>{ name }</h2>
       <p className='text-[#c1c1c1] text-2xl py-2'>{`$ ${price}`}</p>
 
@@ -28,21 +49,33 @@ function ProductInfo({ name, price, details }){
       </div>
 
       <div className='flex items-center gap-x-3 cursor-pointer'>
-        <div className=''>
+        <div 
+          className=''
+          onClick={ handleClick.bind(this, 'decreaseQuantity') }
+        >
           <AiOutlineMinus/>
         </div>
 
         <div className='border-2'>
-          <p className='py-3 px-5'>0</p>
+          <p className='h-10 w-10 flex-space-center'>{ context.state.quantity }</p>
         </div>
 
-        <div className=''>
+        <div 
+          className='' 
+          onClick={ handleClick.bind(this, 'increaseQuantity') }
+        >
           <AiOutlinePlus/>
         </div>
       </div>
 
       <div className='flex items-center my-10 gap-x-8'>
-        <button className='uppercase border-2 py-3 px-8 border-activeColor text-activeColor'>Add to cart</button>
+        <button 
+          className='uppercase border-2 py-3 px-8 border-activeColor text-activeColor'
+          onClick={ handleAddToCart }
+        >
+          Add to cart
+        </button>
+        
         <div className='cursor-pointer'>
           <MdFavoriteBorder color='#C3B8A5' fontSize={30}/>
         </div>

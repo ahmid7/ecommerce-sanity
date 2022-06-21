@@ -1,3 +1,5 @@
+import React from 'react'
+import Link from 'next/link'
 
 import {
   BrandLogo, 
@@ -6,8 +8,11 @@ import {
   HamburgerMenu
 } from './svgIcons'
 
+import { Context } from '../Context/StateContext'
+
 function 
 Header() {
+  const context = React.useContext(Context)
   return (
     <header className='flex-space-between py-2'>
       <div className='pl-20'>
@@ -30,8 +35,15 @@ Header() {
             <SearchIcon />
           </div>
 
-          <div>
-            <CartIcon />
+          <div className='relative'>
+            <Link href="/Cart" passHref>
+              <a>
+                <CartIcon />
+                <div className='absolute -top-4 -right-4 bg-activeColor text-white rounded-full h-6 w-6 flex-space-center'>
+                  { context.state.cartItems.length }
+                </div>
+              </a>
+            </Link>
           </div>
         </div>
         

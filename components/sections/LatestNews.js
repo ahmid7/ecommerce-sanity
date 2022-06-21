@@ -36,7 +36,7 @@ function LatestNews(){
                   </div>
                   <div className='py-4'>
                     <p className='text-sm py-2'>{ Date }</p>
-                    <h3 className='text-[26px] text-primaryColor font-medium'>{Title}</h3>
+                    <h3 className='text-2xll text-primaryColor font-medium'>{Title}</h3>
                     <p className='text-lg text-[#B8B8B8] py-4'>{ details }</p>
                   </div>
                 </div>
