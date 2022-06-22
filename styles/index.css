@@ -97,3 +97,7 @@
 .text-2xll{
   @apply text-[26px]
 }
+
+.cart-header {
+  @apply  w-1/6 
+}

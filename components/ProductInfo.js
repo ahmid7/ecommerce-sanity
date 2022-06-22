@@ -9,11 +9,11 @@ import { MdFavoriteBorder } from 'react-icons/md'
 import { Context } from '../Context/StateContext'
 
 function ProductInfo({ product }){
-  const { name, price, details } = product
+  const { name, price, details, image } = product
 
   const context = React.useContext(Context)
 
-  function handleClick( value){
+  function handleQuantity( value){
     context.dispatchAction({ type: value })
   }
 
@@ -21,9 +21,11 @@ function ProductInfo({ product }){
     context.dispatchAction({ 
       type: 'addToCart',
       payload: { 
+        image: image[0],
         _id : product._id,
         quantity: context.state.quantity, 
-        price: price 
+        price: price,
+        name: name
       }
     })
   }
@@ -50,8 +52,7 @@ function ProductInfo({ product }){
 
       <div className='flex items-center gap-x-3 cursor-pointer'>
         <div 
-          className=''
-          onClick={ handleClick.bind(this, 'decreaseQuantity') }
+          onClick={ handleQuantity.bind(this, 'decreaseQuantity') }
         >
           <AiOutlineMinus/>
         </div>
@@ -61,8 +62,7 @@ function ProductInfo({ product }){
         </div>
 
         <div 
-          className='' 
-          onClick={ handleClick.bind(this, 'increaseQuantity') }
+          onClick={ handleQuantity.bind(this, 'increaseQuantity') }
         >
           <AiOutlinePlus/>
         </div>

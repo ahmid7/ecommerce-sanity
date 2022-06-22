@@ -90,10 +90,17 @@ export const EmptyCartIcon = () => {
   )
 }
 
+export const CancelIcon = () => {
+  return(
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 10L5.86922 4.85757L9.76077 0H8.14992L5.00797 4.003L1.85008 0H0.239234L4.14673 4.87256L0 10H1.61085L5.00797 5.74213L8.4051 10H10Z" fill="#333333"/>
+    </svg>
+  )
+}
+
 
 export const a = () => {
   return(
     a
   )
 }
-

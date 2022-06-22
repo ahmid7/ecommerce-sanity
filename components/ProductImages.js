@@ -14,7 +14,11 @@ function ProductImage({ images }){
           images.map((image, i) =>{
             return(
               <li className='w-[95px] h-[110px] mb-5' key={ i }>
-                <img src={urlFor(image)} onClick={() =>updateImageIndex(i)} className="w-full h-full"/>
+                <img 
+                  src={urlFor(image)} 
+                  onClick={() =>updateImageIndex(i)} 
+                  className="w-full h-full"
+                />
               </li>
             )
           })
