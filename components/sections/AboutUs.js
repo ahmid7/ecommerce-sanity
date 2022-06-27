@@ -6,8 +6,8 @@ import { Circle } from '../index'
 function AboutUs() {
   
   return(
-    <section className='px-60 py-20'>
-      <div className='flex gap-x-10'>
+    <section className='auto-width'>
+      <div className='my-20 flex gap-x-10'>
         <div className='py-12'> 
           <div className='ml-24'>
             <SquareIcon/>
@@ -35,7 +35,7 @@ function AboutUs() {
           </div>
         </div>
 
-        <div className='relative w-[60%]'>
+        <div className='relative w-[56%]'>
           <Image
             src='/images/shelf.webp'
             alt='furniture'

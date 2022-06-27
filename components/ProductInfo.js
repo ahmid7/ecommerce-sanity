@@ -11,21 +11,35 @@ import { Context } from '../Context/StateContext'
 function ProductInfo({ product }){
   const { name, price, details, image } = product
 
+  const [ Qty, setQty ] = React.useState(parseInt(1))
   const context = React.useContext(Context)
 
-  function handleQuantity( value){
-    context.dispatchAction({ type: value })
+  function handleQty(action){
+   if(action === 'add'){
+    setQty((prevQty => {
+      return prevQty + 1
+    }))
+   }else if(action === 'minus'){
+    setQty((prevQty => {
+      if(prevQty - 1 < 1){
+        return prevQty
+      }else{
+        return Qty - 1
+      }
+    }))
+   }
   }
 
   function handleAddToCart(){
     context.dispatchAction({ 
       type: 'addToCart',
       payload: { 
+        quantity: Qty,
         image: image[0],
-        _id : product._id,
-        quantity: context.state.quantity, 
+        _id : product._id, 
         price: price,
-        name: name
+        name: name,
+        subTotal: price * Qty
       }
     })
   }
@@ -52,17 +66,17 @@ function ProductInfo({ product }){
 
       <div className='flex items-center gap-x-3 cursor-pointer'>
         <div 
-          onClick={ handleQuantity.bind(this, 'decreaseQuantity') }
+          onClick={ handleQty.bind(this, 'minus') }
         >
           <AiOutlineMinus/>
         </div>
 
         <div className='border-2'>
-          <p className='h-10 w-10 flex-space-center'>{ context.state.quantity }</p>
+          <p className='h-10 w-10 flex-space-center'>{ Qty }</p>
         </div>
 
         <div 
-          onClick={ handleQuantity.bind(this, 'increaseQuantity') }
+          onClick={ handleQty.bind(this, 'add') }
         >
           <AiOutlinePlus/>
         </div>
@@ -76,14 +90,14 @@ function ProductInfo({ product }){
           Add to cart
         </button>
         
-        <div className='cursor-pointer'>
+        <div className='cursor-pointer' onClick={ handleQty.bind(this, 'minus')}>
           <MdFavoriteBorder color='#C3B8A5' fontSize={30}/>
         </div>
       </div>
 
       <div className='font-normal text-sm text-primaryColor'>
         <div className='my-2'>
-          <p className='tags-container-flex uppercase'>
+          <p className='tags-container-flex uppercase' onClick={ handleQty.bind(this, 'add')}>
             sku ref: 
             <span className='tags'> la-1234</span>
           </p>

@@ -10,7 +10,7 @@ function Catalogue({ data }){
           data?.map(product =>{
             const { name, image, slug } = product
             return(
-              <div className='h-[480px]'>
+              <div className='h-[480px]' key={ name }>
                 <Link href='/product/[slug]' as={`/product/${slug.current}`}>
                   <aa>
                     <img 

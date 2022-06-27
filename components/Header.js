@@ -7,16 +7,25 @@ import {
   CartIcon, 
   HamburgerMenu
 } from './svgIcons'
-
 import { Context } from '../Context/StateContext'
+import { PreviewCart } from './index'
 
-function 
-Header() {
+function Header() {
   const context = React.useContext(Context)
+  const [ showCart, setShowCart] = React.useState(false)
+
+  function toggleCart(){
+    setShowCart(!showCart)
+  }
+
   return (
     <header className='flex-space-between py-2'>
-      <div className='pl-20'>
-        <BrandLogo />
+      <div className='pl-20 '>
+        <Link href='/' passHref>
+          <a>
+            <BrandLogo />
+          </a>
+        </Link>
       </div>
 
       <nav>
@@ -47,8 +56,9 @@ Header() {
           </div>
         </div>
         
-        <div className='p-7 border-l-2'>
+        <div className='p-7 border-l-2 relative' onClick = { toggleCart }>
           <HamburgerMenu/>
+          { showCart && <PreviewCart/> }
         </div>
 
       </div>

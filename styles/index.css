@@ -101,3 +101,7 @@
 .cart-header {
   @apply  w-1/6 
 }
+
+.button-style{
+  @apply uppercase tracking-wider py-5 cursor-pointer
+}

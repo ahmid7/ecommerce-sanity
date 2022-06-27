@@ -40,11 +40,13 @@ function Carousel({ productData }){
 
 function PopularProducts({ data }) {
   return (
-    <SubSection title='Top popular products' carousel={ true }>
-      <div className='flex'>
-        <Carousel productData={ data }/>
-      </div>
-    </SubSection>
+    <section className='my-32'>
+      <SubSection title='Top popular products' carousel={ true }>
+        <div className='flex'>
+          <Carousel productData={ data }/>
+        </div>
+      </SubSection>
+    </section>
   )
 }
 

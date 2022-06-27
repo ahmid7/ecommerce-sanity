@@ -8,7 +8,7 @@ function Description({ images }){
         { 
           imagesSlice.map((image, i) => {
             return(
-              <li>
+              <li key={image._key}>
                 <img 
                   src={urlFor(image)} 
                   alt='product image'

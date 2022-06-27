@@ -5,9 +5,8 @@ import {
 } from './svgIcons'
 
 function SubSection(props){
-
-return(
-    <div className='py-12 px-60 overflow-hidden'>
+  return(
+    <div className='auto-width overflow-hidden'>
       <div className={`flex-space-between`}>
         <div className='flex-space-between mb-12 gap-x-6 text-primaryColor font-medium text-[56px]'>
           <TriangleIcon/>

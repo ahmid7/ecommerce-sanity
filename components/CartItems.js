@@ -4,50 +4,10 @@ import {
   AiOutlineMinus
 } from 'react-icons/ai'
 
+import { CartTotal } from './index'
 import { Context } from '../Context/StateContext'
 import { CancelIcon } from './svgIcons'
 import { urlFor } from '../lib/client'
-
-
-function CartTotal(){
-  const context = React.useContext(Context)
-
-  return (
-    <div className="bg-[#F9F9F9] pt-10">
-      <div className="px-8">
-        <h2 className="font-medium text-2xll">Cart Total</h2>
-
-        <div className="border-b-[1px] border-[#B5B5B5] py-8">
-          <div className="flex-space-between py-3">
-            <p>Subtotal</p>
-            <p>{ context.state.totalPrice }</p>
-          </div>
-
-          <div className="flex-space-between py-3">
-            <p>Shipping</p>
-            <p>$10</p>
-          </div>
-
-          <div className='flex justify-end'>
-            <button className="uppercase text-white bg-primaryColor px-10 py-2">
-              Update
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex-space-between px-8 py-4">
-        <p>Total</p>
-        <p>{`$ ${ context.state.totalPrice + 10 }`}</p>
-      </div>
-
-      <div className="uppercase bg-primaryColor py-4 text-white text-center">
-        Proceed to checkout
-      </div>
-
-    </div>
-  )
-}
 
 function CartItems(){
   const context = React.useContext(Context)
@@ -63,19 +23,40 @@ function CartItems(){
           <p className="cart-header">SubTotal</p>
         </div>
 
-        <div className="border-y-2 py-4 mt-4">
-            {(context.state.cartItems)?.map(item => {
-              const { image, _id, price, quantity, name } = item
+        <div className="border-y-2 py-4 mt-4 flex flex-col gap-y-4 select-none">
+            {(context.state.cartItems ).map(item => {
+              const { image, _id, price, quantity, name, subTotal } = item
+
+              function handleQtyInCart(action){
+                context.dispatchAction({ 
+                  type: action,
+                  payload: { 
+                    _id,
+                    quantity 
+                  } 
+                })
+              }
+
+              function handleRemoveProduct(){
+                context.dispatchAction({ 
+                  type: 'removeInCart', 
+                  payload: { 
+                    _id 
+                  } 
+                })
+              }
+
               return (
                 <div key= {_id}>
                   <div className="flex items-center">
                     <div className="w-1/2 flex items-center ">
-                      <CancelIcon/>
+                      <div onClick={ handleRemoveProduct }>
+                       <CancelIcon/>
+                      </div>
 
                       <div className="w-[80px] h-[100px] ml-5">
                         <img 
                           src={urlFor(image)} 
-                          onClick={() =>updateImageIndex(i)} 
                           className="w-full h-full"
                         />
                       </div>
@@ -91,13 +72,19 @@ function CartItems(){
                     <div className="cart-header flex justify-center">
                       <div className="inline-block">
                         <div className="flex-space-between">
-                          <span className="">
+                          <span 
+                            className=""
+                            onClick = { handleQtyInCart.bind(this, 'minusQtyInCart') }
+                          >
                             <AiOutlineMinus/>
                           </span>
 
                           <p className="h-10 w-10 flex-space-center">{quantity}</p>
 
-                          <span className="">
+                          <span 
+                            className=""
+                            onClick={ handleQtyInCart.bind(this, 'addQtyInCart') }
+                          >
                             <AiOutlinePlus/>
                           </span>
                         </div>
@@ -105,7 +92,7 @@ function CartItems(){
                     </div>
 
                     <div className="cart-header text-center">
-                      {`$ ${price * quantity}`}
+                      {`$ ${(subTotal).toFixed(2)}`}
                     </div>
 
                   </div>

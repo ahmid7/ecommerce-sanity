@@ -18,14 +18,14 @@ function LatestNews(){
     }
   ]
   return(
-    <section>
+    <section className='auto-width my-20'>
       <SubSection title='Update the latest news' carousel={true}>
         <div className='flex flex-nowrap gap-x-10'>
           {
             newsData.map(news => {
               const { Date, Title, image, details } = news
               return(
-                <div className='text-center'>
+                <div className='text-center' key={Title}>
                   <div className='relative w-full h-[452px]'>
                     <Image
                       src={ image }

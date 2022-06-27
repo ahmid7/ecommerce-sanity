@@ -16,7 +16,7 @@ function DesignStyle(){
     }
   ]
   return(
-    <section className="py-10 bg-[#898990] my-10 bg-designSystem bg-no-repeat bg-center bg-cover">
+    <section className="py-10 bg-[#898990] bg-designSystem bg-no-repeat bg-center bg-cover">
       <SubSection 
         title='Choose a design style' 
         subTitle='ipsum nunc aliquet bibendum enim facillisis gravida neque convallis a aliquet risus feugiat in ante'
@@ -25,7 +25,7 @@ function DesignStyle(){
           {
             data.map(item => {
               return(
-                <div className='h-[599px]'>
+                <div className='h-[599px]' key={item.name}>
                   <img 
                     src={ item.image } 
                     alt={item.name}

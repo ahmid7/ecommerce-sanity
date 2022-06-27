@@ -46,7 +46,7 @@ function Carousel({ productData }){
 
 function FurnitureProducts({ data }){
   return(
-    <section className=''>
+    <section className='my-20'>
       <SubSection title='Furniture Products' carousel={ true }>
         <Carousel productData={ data }/>
       </SubSection>
