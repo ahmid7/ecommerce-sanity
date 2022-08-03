@@ -17,16 +17,17 @@ function LatestNews(){
       details:'Cras fermentum odio eu feugiat pretium luctus venenatis lectus magna fringilla urna porttitor rhoncus risus nullam eget felis eget'
     }
   ]
+  // FIXME: fix margin spacing for the parent container
   return(
-    <section className='auto-width my-20'>
+    <section className='mb-7 md:mb-16 xl:mb-20'>
       <SubSection title='Update the latest news' carousel={true}>
-        <div className='flex flex-nowrap gap-x-10'>
+        <div className='flex flex-col sm:flex-row gap-x-5 lg:gap-x-6 xl:gap-x-10'>
           {
-            newsData.map(news => {
+            newsData.map(( news, index ) => {
               const { Date, Title, image, details } = news
               return(
-                <div className='text-center' key={Title}>
-                  <div className='relative w-full h-[452px]'>
+                <div className={`text-center ${index === 1 ? 'hidden sm:block' : ''}`} key={Title}>
+                  <div className='relative w-full  h-[340px] lg:h-[380px] xl:h-[452px]'>
                     <Image
                       src={ image }
                       alt={Title}
@@ -37,7 +38,7 @@ function LatestNews(){
                   <div className='py-4'>
                     <p className='text-sm py-2'>{ Date }</p>
                     <h3 className='text-2xll text-primaryColor font-medium'>{Title}</h3>
-                    <p className='text-lg text-[#B8B8B8] py-4'>{ details }</p>
+                    <p className='text-base xl:text-lg text-[#B8B8B8] py-2 xl:py-4'>{ details }</p>
                   </div>
                 </div>
               )

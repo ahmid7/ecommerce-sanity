@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 export const Context = createContext();
 
-const initalState = {
+const initialState = {
   showCart: false,
   totalPrice: 0,
   cartItems: [],
@@ -18,7 +18,10 @@ const initalState = {
 const reducer = (state, action) => {
   switch(action.type) {
     case 'addToCart':
-      const checkItemInCart = state.cartItems.find(item => item._id === action.payload._id)
+      let checkItemInCart
+      if((state.cartItems).length !== 0) {
+        checkItemInCart = state.cartItems?.find(item => item._id === action.payload._id)
+      }
 
       if(checkItemInCart) {
         return {
@@ -82,12 +85,12 @@ const reducer = (state, action) => {
 
     case 'removeInCart': {
       return {
-       ...state,
-       cartItems: state.cartItems.filter(object => {
+        ...state,
+        cartItems: state.cartItems.filter(object => {
         return (
           object._id !== action.payload._id
         )
-       })
+      })
       }
     }
 
@@ -104,7 +107,7 @@ const reducer = (state, action) => {
 }
 
 const StateContext = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initalState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return(
     <Context.Provider value={{ state: state, dispatchAction: dispatch  }}>

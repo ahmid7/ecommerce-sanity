@@ -23,6 +23,7 @@ function AccountLayout({ title, children, image }){
                   src='/Images/Sign.webp'
                   width={730}
                   height={705}
+                  alt='SignIn image'
                 />
               </div>
             </div>

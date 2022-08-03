@@ -49,21 +49,25 @@
   @apply flex justify-between items-center
 }
 
-
 .flex-space-center{
   @apply flex justify-center items-center
 }
 
+.flex-items-center{
+  @apply flex sm:items-center
+}
+/* FIXME: left-0 top-1/3 fro position absolute */
+
 .position-absolute {
-  @apply absolute -bottom-20 left-[29rem]
+  @apply absolute left-0 top-1/3 sm:top-auto sm:bottom-24 sm:right-4 md:-bottom-12 lg:-bottom-16 md:left-[14rem] lg:left-[18rem] xl:-bottom-20 xl:left-[29rem]
 }
 
 .carousel-button{
-  @apply px-4 py-3 cursor-pointer
+  @apply px-3 py-2  md:px-4 md:py-3 cursor-pointer
 }
 
 .circle{
-  @apply w-[192px] h-[192px] rounded-full border-2 flex-space-center cursor-pointer tracking-widest text-sm text-primaryColor flex-space-center
+  @apply w-[110px] h-[110px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px] xl:w-[180px] xl:h-[180px] 2xl:w-[192px] 2xl:h-[192px] rounded-full border-2 flex-space-center cursor-pointer tracking-wide xl:tracking-widest text-sm text-primaryColor flex-space-center
 }
 
 .tags{
@@ -75,11 +79,11 @@
 }
 
 .component-change{
-  @apply text-[#C1C1C1] font-light text-xl tracking-[2px]
+  @apply text-[#C1C1C1] font-light text-lg sm:text-base lg:text-lg xl:text-xl tracking-[2px]
 }
 
 .auto-width{
-  @apply container mx-auto px-0
+  @apply container mx-auto px-2 xs:px-4 sm:px-5 md:px-6 lg:px-10 xl:px-0
 }
 
 .input-style {
@@ -87,19 +91,24 @@
 }
 
 .form-button {
- @apply block border-[1px] border-activeColor py-4 px-8 mt-8
+  @apply block border-[1px] border-activeColor py-4 px-8 mt-8
 }
 
 .svg-background {
   background-image: url('/svgImage/cart-bg.svg');
+  background-repeat: no-repeat;
 }
 
 .text-2xll{
-  @apply text-[26px]
+  @apply  text-xl xl:text-[26px]
+}
+
+.product-info-comp{
+  @apply hover:text-primaryColor pb-1 sm:pb-0 border-b-2 sm:border-b-0
 }
 
 .cart-header {
-  @apply  w-1/6 
+  @apply hidden sm:block  sm:w-1/6
 }
 
 .button-style{

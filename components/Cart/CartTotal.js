@@ -1,8 +1,8 @@
 import React from 'react'
 import toast from "react-hot-toast";
 
-import getStripe from '../lib/getStripe'
-import { Context } from '../Context/StateContext'
+import getStripe from '../../lib/getStripe'
+import { Context } from '../../Context/StateContext'
 
 function CartTotal(){
   const context = React.useContext(Context)
@@ -41,7 +41,7 @@ function CartTotal(){
 
   return (
     <div className="bg-[#F9F9F9] pt-10">
-      <div className="px-8">
+      <div className="px-4 xl:px-8">
         <h2 className="font-medium text-2xll">Cart Total</h2>
 
         <div className="border-b-[1px] border-[#B5B5B5] py-8">
@@ -56,20 +56,20 @@ function CartTotal(){
           </div>
 
           <div className='flex justify-end'>
-            <button className="uppercase text-white bg-primaryColor px-10 py-2">
+            <button className="uppercase text-white bg-primaryColor px-10 md:px-6 xl:px-10 py-2">
               Update
             </button>
           </div>
         </div>
       </div>
 
-      <div className="flex-space-between px-8 py-4">
+      <div className="flex-space-between px-4 xl:px-8 py-4">
         <p>Total</p>
         <p>{`$ ${ parseInt(totalPrice) + 10 }`}</p>
       </div>
 
       <div 
-        className="tracking-wider uppercase bg-primaryColor py-4 text-white text-center"
+        className="tracking-wider cursor-pointer uppercase bg-primaryColor py-4 text-white text-center"
         onClick={handleCheckOut}
       >
         pay with stripe

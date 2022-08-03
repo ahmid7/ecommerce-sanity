@@ -42,7 +42,7 @@ export default function Home({ products }) {
     <article className=''>
       <HeroSection/>
       <PopularProducts data={ popularProducts }/>
-      <DesignStyle/>
+      {/* <DesignStyle/> */}
       <FurnitureProducts data={ otherProducts }/>
       <Catalogue data={ bedroom }/>
       <AboutUs/>

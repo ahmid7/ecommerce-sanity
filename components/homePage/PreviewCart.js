@@ -2,10 +2,10 @@ import React from 'react'
 import toast from "react-hot-toast";
 import { useRouter } from 'next/router';
 
-import { Context } from '../Context/StateContext'
-import { urlFor } from '../lib/client'
-import getStripe from '../lib/getStripe'
-import { CancelIcon } from './svgIcons'
+import { Context } from '../../Context/StateContext'
+import { urlFor } from '../../lib/client'
+import getStripe from '../../lib/getStripe'
+import { CancelIcon } from '../svgIcons'
 
 function PreviewCart(){
   const context = React.useContext(Context)
@@ -35,17 +35,15 @@ function PreviewCart(){
 
     const data = await response.json()
 
-    console.log(data)
-
     toast.loading('Redirecting')
 
     stripe.redirectToCheckout({ sessionId: data.id })
   }
 
   return (
-    <aside className='w-[400px] absolute right-0 top-16 pt-5 z-20 text-primaryColor bg-activeColor'>
-      <div className='flex-space-between  px-10'>
-        <h2 className='capitalize font-bold text-3xl '>shopping cart</h2>
+    <aside className='w-[320px] rounded-md lg:w-[400px] absolute right-0 top-12 lg:top-16 pt-5 z-20 text-primaryColor bg-activeColor'>
+      <div className='flex-space-between px-5 lg:px-8 xl:px-10'>
+        <h2 className='capitalize font-bold text-2xl xl:text-2xl 2xl:text-3xl'>shopping cart</h2>
         <div className='w-8 h-8 rounded-full flex items-center justify-center'>
           <CancelIcon/>
         </div>
@@ -55,7 +53,7 @@ function PreviewCart(){
         { 
           (context.state.cartItems).length > 0 &&
           <div>
-            <div className='py-5  px-10'>
+            <div className='px-5 lg:px-8 xl:px-10'>
               {
                 (context.state.cartItems)?.map(item => (
                   <div key={item._id} className=''>
@@ -85,7 +83,7 @@ function PreviewCart(){
               }
             </div>
     
-            <div className='font-medium text-primaryColor px-10 mb-10'>
+            <div className='font-medium text-primaryColor lg:px-8 xl:px-10 mb-10'>
               <p>{`Subtotal: $${totalPrice}`}</p>
             </div>
     
@@ -106,11 +104,11 @@ function PreviewCart(){
         }
       </div>
 
-      <div className='px-10 my-4 '>
+      <div className='px-5 lg:px-10 my-4 '>
         { 
           context.state.cartItems.length < 1 && 
           <div className='text-primaryColor'>
-            <p>No item(s) has been added to cart yet</p>
+            <p className='text-center lg:text-base xl:text-lg'>No item(s) has been added to cart yet</p>
           </div>
         }
       </div>
