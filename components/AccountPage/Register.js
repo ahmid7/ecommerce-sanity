@@ -2,12 +2,18 @@ import React from 'react'
 
 function Register(){
 
+  
+  /* Creating a state object called formDetails and a function called setFormDetails. */
   const [ formDetails, setFormDetails ] = React.useState({
     username: '',  
     email : '',
     password: '',
   })
 
+  /**
+   * When the user types in the input field, update the formDetails object with the new value.
+   * @param e - the event object
+   */
   function updateFormDetails(e){
     setFormDetails(
       { 
@@ -34,7 +40,7 @@ function Register(){
         />
 
         <input
-          className='input-style mt-12'
+          className='input-style mt-3 lg:mt-6 xl:mt-12'
           type='email'
           placeholder='Email Address'
           name='email'
@@ -43,7 +49,7 @@ function Register(){
         />
 
         <input 
-          className="input-style mt-12" 
+          className="input-style mt-3 lg:mt-6 xl:mt-12" 
           type='password'
           placeholder="Password *"
           name='password'
@@ -51,7 +57,7 @@ function Register(){
           onChange = { updateFormDetails }
         />
 
-        <p className='mt-6 leading-relaxed'>
+        <p className='mt-3 xl:mt-6 text-xs lg:text-sm xl:text-base leading-relaxed'>
           Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.
         </p>
 

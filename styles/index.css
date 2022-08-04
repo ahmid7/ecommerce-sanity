@@ -87,11 +87,11 @@
 }
 
 .input-style {
-  @apply w-full border-b-[1px] font-light text-lg border-[#9D9D9D] focus:border-activeColor outline-none py-2 text-[#9D9D9D]
+  @apply w-full border-b-[1px] font-light text-base xl:text-lg border-[#9D9D9D] focus:border-activeColor outline-none py-2 text-[#9D9D9D]
 }
 
 .form-button {
-  @apply block border-[1px] border-activeColor py-4 px-8 mt-8
+  @apply block cursor-pointer border-[1px] border-activeColor text-sm lg:text-base py-2 px-6 xl:py-4 xl:px-8 mt-4 lg:mt-5 xl:mt-8
 }
 
 .svg-background {
@@ -115,9 +115,10 @@
   @apply uppercase tracking-wider py-5 cursor-pointer
 }
 
-.center-ele{
+.center-ele {
   position: absolute;
   right: 0;
+  bottom: 0;
   bottom: 50%;
   top:50%;
 }

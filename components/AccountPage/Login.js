@@ -32,7 +32,7 @@ function Login(){
         />
 
         <input 
-          className="input-style mt-12" 
+          className="input-style mt-3 lg:mt-6 xl:mt-12" 
           type='password'
           name='password'
           placeholder="Password *"
@@ -42,15 +42,15 @@ function Login(){
 
         <label 
           className=""
-          htmlFor="remeber"
+          htmlFor="remember"
         >
           <input 
-            id="remeber"
-            className="mt-8 mr-3" 
+            id="remember"
+            className="mt-4 lg:mt-5 xl:mt-8 mr-3 text-sm lg:text-base" 
             type='checkbox'
             placeholder=""
           />
-          Remeber Me
+          Remember Me
         </label>
         
 
