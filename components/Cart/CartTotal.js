@@ -40,7 +40,7 @@ function CartTotal(){
   }
 
   return (
-    <div className="bg-[#F9F9F9] pt-10">
+    <div className="bg-[#F9F9F9] pb-10 sm:pb-0 pt-10">
       <div className="px-4 xl:px-8">
         <h2 className="font-medium text-2xll">Cart Total</h2>
 
@@ -54,12 +54,12 @@ function CartTotal(){
             <p>Shipping</p>
             <p>$10</p>
           </div>
-
-          <div className='flex justify-end'>
+          {/* TODO:consider removing this */}
+          {/* <div className='flex justify-end'>
             <button className="uppercase text-white bg-primaryColor px-10 md:px-6 xl:px-10 py-2">
               Update
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -69,7 +69,7 @@ function CartTotal(){
       </div>
 
       <div 
-        className="tracking-wider cursor-pointer uppercase bg-primaryColor py-4 text-white text-center"
+        className="tracking-wider cursor-pointer uppercase bg-primaryColor py-3 sm:py-4 text-white text-center"
         onClick={handleCheckOut}
       >
         pay with stripe

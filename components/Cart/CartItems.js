@@ -57,8 +57,8 @@ function CartItems(){
 
               return (
                 <div key= { _id }>
-                  <div className="grid grid-cols-2 sm:flex sm:items-center">
-                    <div className="sm:w-1/2 sm:flex sm:items-center ">
+                  <div className="flex sm:items-center">
+                    <div className="w-1/3 sm:w-1/2 sm:flex sm:items-center ">
                       <div 
                         className='hidden sm:block'
                         onClick={ handleRemoveProduct }
@@ -80,18 +80,21 @@ function CartItems(){
                     </div>
                     
                     {/* mobile */}
-                    <div className='flex-1 border-2 block sm:hidden '>
-                      <p>{ name }</p>
-                      <div className=''>
-                        Quantity: <span>{ quantity }</span>
+                    <div className='flex-1 text-sm px-5 relative block sm:hidden '>
+                      <p className='text-base opacity-50'>{ name }</p>
+                      <div className='py-1 flex'>
+                        Quantity: <span className='text-center block flex-1'>{ quantity }</span>
                       </div>
 
-                      <div className=''>
-                        SubTotal: <span>{`$ ${(subTotal).toFixed(2)}`}</span>
+                      <div className='py-1 flex'>
+                        SubTotal: <span className='text-center block flex-1'>{`$ ${(subTotal).toFixed(2)}`}</span>
                       </div>
 
-                      <div className='absolute'>
-                        
+                      <div 
+                        className='center-ele'
+                        onClick={ handleRemoveProduct }
+                      >
+                        <CancelIcon/>
                       </div>
                     </div>
 

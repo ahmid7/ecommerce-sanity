@@ -114,3 +114,10 @@
 .button-style{
   @apply uppercase tracking-wider py-5 cursor-pointer
 }
+
+.center-ele{
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  top:50%;
+}
