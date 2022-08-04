@@ -12,13 +12,13 @@ function Catalogue({ data }){
             return(
               <div className='sm:h-full xl:h-[420px] 2xl:h-[480px]' key={ name }>
                 <Link href='/product/[slug]' as={`/product/${slug.current}`}>
-                  <aa>
+                  <a>
                     <img 
                       src={ urlFor(image && image[0])}
                       alt={ name }
                       className='w-full h-full'
                     />
-                  </aa>
+                  </a>
                 </Link>
               </div>
             )

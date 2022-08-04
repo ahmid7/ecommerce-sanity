@@ -38,7 +38,7 @@ function CartItems(){
                   type: action,
                   payload: { 
                     _id,
-                    quantity     
+                    quantity  
                   } 
                 })
               }
